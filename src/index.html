@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🌤️ Weather App</h1>
+            <p>Check weather and manage your favorite locations</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Search Section -->
+            <section class="search-section">
+                <h2>Search Weather</h2>
+                <form id="searchForm" class="search-form">
+                    <div class="form-group">
+                        <label for="searchInput">Enter city name:</label>
+                        <input type="text"
+                               id="searchInput"
+                               placeholder="e.g., London, Tokyo, New York"
+                               required />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+                <div id="searchResults" class="search-results"></div>
+            </section>
+
+            <!-- Current Weather Section -->
+            <section class="weather-section">
+                <h2>Current Weather</h2>
+                <div id="currentWeather" class="weather-card"></div>
+            </section>
+
+            <!-- Favorites Section -->
+            <section class="favorites-section">
+                <h2>Favorite Locations</h2>
+                <div id="favoritesList" class="favorites-list"></div>
+                <button id="clearFavoritesBtn" class="btn btn-secondary">
+                    Clear All Favorites
+                </button>
+            </section>
+
+            <!-- Notifications Section -->
+            <section class="notifications-section">
+                <h2>Notifications</h2>
+                <div class="notification-controls">
+                    <button id="addNotificationBtn" class="btn btn-primary">
+                        Add Notification
+                    </button>
+                </div>
+                <div id="notificationsList" class="notifications-list"></div>
+                <div id="notificationMessages" class="notification-messages"></div>
+            </section>
+        </main>
+
+        <!-- Modal for adding notifications -->
+        <div id="notificationModal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>Add Weather Notification</h3>
+                <form id="notificationForm" class="notification-form">
+                    <div class="form-group">
+                        <label for="notificationLocation">Select Location:</label>
+                        <select id="notificationLocation" required>
+                            <option value="">Choose a favorite location</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="notificationType">Notification Type:</label>
+                        <select id="notificationType" required>
+                            <option value="">Select type</option>
+                            <option value="temperature">Temperature Change</option>
+                            <option value="humidity">Humidity Change</option>
+                            <option value="windSpeed">Wind Speed Change</option>
+                            <option value="weatherCondition">Weather Condition</option>
+                        </select>
+                    </div>
+                    <div id="conditionFields" class="condition-fields"></div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">
+                            Create Notification
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
